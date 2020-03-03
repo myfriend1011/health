@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanxu.dao.ITong_ji_Data">
+    <insert id="add" parameterType="tong_ji_data">
+        insert into tong_ji_data(qimashuju, qimayilou, sanmashuju, sanmayilou, zongjiang)values(#{qimashuju}, #{qimayilou}, #{sanmashuju}, #{sanmayilou}, #{zongjing})
+    </insert>
+</mapper>

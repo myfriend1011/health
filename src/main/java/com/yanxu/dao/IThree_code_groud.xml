@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanxu.dao.IThree_code_groud">
+    <!--判断there与大小类型-->
+    <update id="UpdateSizeById" parameterType="Integer">
+        update three_code_groud set id_size=#{id_size} where id_tcg =#{id}
+    </update>
+    <!--判断合质和there-->
+    <update id="updateHeZhiById" parameterType="OneToMoney">
+        update three_code_groud set id_zhihe=#{id_size} where id_tcg =#{id}
+    </update>
+    
+    <!--设置there和奇偶关系-->
+    <update id="updateJiOuById" parameterType="OneToMoney">
+        update three_code_groud set id_jiou=#{id_size} where id_tcg =#{id}
+    </update>
+
+    <!--设置there和sum-->
+    <update  id="updateSumAndthere" parameterType="OneToMoney">
+        update three_code_groud set id_sum =#{id_size} where id_tcg=#{id}
+    </update>
+    <!--设置there和sum-->
+    <update id="updatechaziAndthere" parameterType="OneToMoney">
+        update three_code_groud set id_chazi=#{id_size} where id_tcg=#{id}
+    </update>
+</mapper>

@@ -1,0 +1,39 @@
+.el-header{
+    color: #333;
+    line-height: 200px;
+    height: 230px;
+}
+
+.el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    float:left;
+
+}
+table,tr,td{
+    border: #0b1a32 solid 1px;
+}
+td{
+    width: 40px;
+}
+
+button{
+    width: 100%;
+    height: 100%;
+}
+.there,.five,.six,.seven,.eight{
+    float: left;
+    border: #0b1a32 solid 1px;
+}
+
+div.demo {
+    background:#CCCCCC none repeat scroll 0 0;
+    border:3px solid #666666;
+    margin:5px;
+    padding:5px;
+    position:relative;
+    width: 3000px;
+    height: 2000px;
+    overflow:auto;
+}

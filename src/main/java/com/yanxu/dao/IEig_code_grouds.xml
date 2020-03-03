@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanxu.dao.IEig_code_grouds">
+    <update id="updateNow_scg" parameterType="Integer">
+        update eig_code_groud set before_eig=now_eig,now_eig=0 where id_eig=#{id}
+    </update>
+    <update id="updateBefore_scg" parameterType="Integer">
+        update eig_code_groud set now_eig=now_eig+1 where id_eig =#{id}
+    </update>
+    <select id="find_eightGuanLianThere" resultType="three_code_groud" parameterType="Integer">
+            select * from three_code_groud where id_tcg in(select id_there from eight_code_and_thre_code where id_eight=#{id}) order by now_tcg desc
+     </select>
+    <select id="find_eightGuanLianFour" resultType="four_code_groud" parameterType="Integer">
+        select * from four_code_groud where id_fcg in(select id_four from eight_code_and_four_code where id_eight=#{id}) order by now_fcg desc
+    </select>
+    <select id="find_eightGuanLianFive" resultType="five_code_groud" parameterType="Integer">
+        select * from five_code_groud where id_Fcg in(select id_five from eight_code_and_five_code where id_eight=#{id}) order by now_Fcg desc
+    </select>
+    <select id="find_eightGuanLianSix" resultType="six_code_groud" parameterType="Integer">
+        select * from six_code_groud where id_scg in(select id_six from eight_code_and_six_code where id_eight=#{id}) order by now_scg desc
+    </select>
+    <select id="find_eightGuanLianSeven" resultType="sev_code_groud" parameterType="Integer">
+        select * from sev_code_groud where id_Scg in(select id_seven from eight_code_and_seven_code where id_eight=#{id}) order by now_Scg desc
+    </select>
+
+</mapper>

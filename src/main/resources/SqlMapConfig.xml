@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<properties resource="jdbcConfig.properties"></properties>-->
+    <!--<environments default="mysql"> <environment id="mysql">-->
+        <!--<transactionManager type="JDBC"></transactionManager>-->
+        <!--<dataSource type="pooled">-->
+            <!--<property name="driver" value="${jdbc.driver}"/>-->
+            <!--<property name="url" value="${jdbc.url}"/>-->
+            <!--<property name="username" value="${jdbc.username}"/>-->
+            <!--<property name="password" value="${jdbc.password}"/>-->
+        <!--</dataSource>-->
+    <!--</environment>-->
+    <!--</environments>-->
+    <!--<mappers>-->
+        <!--&lt;!&ndash;<mapper resource="com/itheima/dao/AccountDao.xml"/>&ndash;&gt;-->
+        <!--<package name="cn.yanxu.dao"></package>-->
+    <!--</mappers>-->
+    <!--引入数据源信息-->
+    <!--<properties resource="jdbcConfig.properties"></properties>-->
+    <!--配置别名-->
+    <typeAliases>
+        <package name="com.yanxu.domain"></package>
+    </typeAliases>
+    <!--&lt;!&ndash;配置数据库信息&ndash;&gt;-->
+    <!--<environments default="mysql">-->
+        <!--<environment id="mysql">-->
+            <!--<transactionManager type="JDBC"></transactionManager>-->
+            <!--<dataSource type="pooled">-->
+                <!--<property name="driver" value="${jdbc.driver}"></property>-->
+                <!--<property name="url" value="${jdbc.url}"></property>-->
+                <!--<property name="username" value="${jdbc.username}"></property>-->
+                <!--<property name="password" value="${jdbc.password}"></property>-->
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
+    <!--&lt;!&ndash;告知mybits映射的位置&ndash;&gt;-->
+    <!--<mappers>-->
+        <!--&lt;!&ndash;<mapper resource="com/yanxu/dao/IThree_code_groud.xml"></mapper>&ndash;&gt;-->
+        <!--&lt;!&ndash;注意：此种方法要求 mapper 接口名称和 mapper 映射文件名称相同，且放在同一个目录中。&ndash;&gt;-->
+        <!--<package name="com.yanxu.dao"></package>-->
+    <!--</mappers>-->
+</configuration>

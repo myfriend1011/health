@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="../js/vuejs-2.5.16.js"></script>
+    <script src="../js/axios-0.18.0.js"></script>
+    <link rel="stylesheet" href="../css/therepage/four.css">
+</head>
+<body>
+<div id="app">
+    <div class="el-header">
+        <img src="../img/guohua/01.jpg" height="100%" width="100%">
+    </div>
+    <div class="demo">
+        <div class="el-aside">
+            <table>
+                <tr v-for="(item,index) in sevenData">
+                    <td><div>{{item.name_one_Scg}}</div></td>
+                    <td><div>{{item.name_two_Scg}}</div></td>
+                    <td><div>{{item.name_the_Scg}}</div></td>
+                    <td><div>{{item.name_fou_Scg}}</div></td>
+                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                    <td><div>{{item.name_six_Scg}}</div></td>
+                    <td><div>{{item.name_sev_Scg}}</div></td>
+                    <td><div>{{item.now_Scg}}</div></td>
+                    <td><div>{{item.before_Scg}}</div></td>
+                    <td>
+                        <div>
+                            <input type="button" value="对应关系" v-on:click="sevenGuanLianThere(item.id_Scg)"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--there-->
+        <div class="there">
+            <table>
+                <thead>
+                <tr>
+                    <td>dataOne</td>
+                    <td>dataTwo</td>
+                    <td>dataThe</td>
+                    <td>dataNow</td>
+                    <td>dataBefore</td>
+                </tr>
+                </thead>
+                <tr v-for="(item,index) in thereData">
+                    <td><div>{{item.name_one_tcg}}</div></td>
+                    <td><div>{{item.name_two_tcg}}</div></td>
+                    <td><div>{{item.name_the_tcg}}</div></td>
+                    <td><div>{{item.now_tcg}}</div></td>
+                    <td><div>{{item.before_tcg}}</div></td>
+                </tr>
+            </table>
+        </div>
+        <!--four-->
+        <div class="five">
+            <table>
+                <thead>
+                <tr>
+                    <td>fourOne</td>
+                    <td>fourTwo</td>
+                    <td>fourThe</td>
+                    <td>fourFou</td>
+                    <td>fiveNow</td>
+                    <td>fiveBefore</td>
+                </tr>
+                </thead>
+                <tr v-for="(item,index) in fourData">
+                    <td><div>{{item.name_one_fcg}}</div></td>
+                    <td><div>{{item.name_two_fcg}}</div></td>
+                    <td><div>{{item.name_the_fcg}}</div></td>
+                    <td><div>{{item.name_fou_fcg}}</div></td>
+                    <td><div>{{item.now_fcg}}</div></td>
+                    <td><div>{{item.before_fcg}}</div></td>
+                </tr>
+            </table>
+        </div>
+        <!--six-->
+        <div class="six">
+            <table>
+                <thead>
+                <tr>
+                    <td>fiveOne</td>
+                    <td>fiveTwo</td>
+                    <td>fiveThe</td>
+                    <td>fiveFou</td>
+                    <td>fiveFiv</td>
+                    <td>fiveNow</td>
+                    <td>fiveBefore</td>
+                </tr>
+                </thead>
+                <tr v-for="(item, index) in fiveData">
+                    <td><div>{{item.name_one_Fcg}}</div></td>
+                    <td><div>{{item.name_two_Fcg}}</div></td>
+                    <td><div>{{item.name_the_Fcg}}</div></td>
+                    <td><div>{{item.name_fou_Fcg}}</div></td>
+                    <td><div>{{item.name_fiv_Fcg}}</div></td>
+                    <td><div>{{item.now_Fcg}}</div></td>
+                    <td><div>{{item.before_Fcg}}</div></td>
+                </tr>
+            </table>
+        </div>
+        <!--seven-->
+        <div class="seven">
+            <table>
+                <thead>
+                <tr>
+                    <td>sixOne</td>
+                    <td>sixTwo</td>
+                    <td>sixThe</td>
+                    <td>sixFou</td>
+                    <td>sixFiv</td>
+                    <td>sixSix</td>
+                    <td>sixNow</td>
+                    <td>sixBefore</td>
+                </tr>
+                </thead>
+                <tr v-for="(item,index) in sixData">
+                    <td><div>{{item.name_one_scg}}</div></td>
+                    <td><div>{{item.name_two_scg}}</div></td>
+                    <td><div>{{item.name_the_scg}}</div></td>
+                    <td><div>{{item.name_fou_scg}}</div></td>
+                    <td><div>{{item.name_fiv_scg}}</div></td>
+                    <td><div>{{item.name_six_scg}}</div></td>
+                    <td><div>{{item.now_scg}}</div></td>
+                    <td><div>{{item.before_scg}}</div></td>
+                </tr>
+            </table>
+        </div>
+        <!--eight-->
+        <div class="eight">
+            <table>
+                <thead>
+                <tr>
+                    <td>eightOne</td>
+                    <td>eightTwo</td>
+                    <td>eightThe</td>
+                    <td>eightFou</td>
+                    <td>eightFiv</td>
+                    <td>eightSix</td>
+                    <td>eightSev</td>
+                    <td>eighteig</td>
+                    <td>eightNow</td>
+                    <td>eightBefore</td>
+                </tr>
+                </thead>
+                <tr v-for="(item,index) in eightData">
+                    <td><div>{{item.name_one_eig}}</div></td>
+                    <td><div>{{item.name_two_eig}}</div></td>
+                    <td><div>{{item.name_the_eig}}</div></td>
+                    <td><div>{{item.name_fou_eig}}</div></td>
+                    <td><div>{{item.name_fiv_eig}}</div></td>
+                    <td><div>{{item.name_six_eig}}</div></td>
+                    <td><div>{{item.name_sev_eig}}</div></td>
+                    <td><div>{{item.name_eig_eig}}</div></td>
+                    <td><div>{{item.now_eig}}</div></td>
+                    <td><div>{{item.before_eig}}</div></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    var vues = new Vue({
+        el : "#app",
+        data:{
+            fiveData:[],
+            thereData:[],
+            fourData:[],
+            sixData:[],
+            sevenData:[],
+            eightData:[]
+        },
+        methods: {
+            sevenGuanLianThere(id_eig){
+                alert(id_eig)
+                axios.get("/seven/find_sevenGuanLianThere.do?id="+id_eig).then((response)=>{
+                    this.thereData = response.data.result;
+                });
+                axios.get("/seven/find_sevenGuanLianFour.do?id="+id_eig).then((response)=>{
+                    this.fourData = response.data.result;
+                });
+                axios.get("/seven/find_sevenGuanLianFive.do?id="+id_eig).then((response)=>{
+                    this.fiveData = response.data.result;
+                });
+                axios.get("/seven/find_sevenGuanLianSix.do?id="+id_eig).then((response)=>{
+                    this.sixData = response.data.result;
+                });
+                axios.get("/seven/find_sevenGuanLianEight.do?id="+id_eig).then((response)=>{
+                    this.eightData = response.data.result;
+                });
+            }
+        },
+        created:function () {
+            axios.post("/seven/findAll.do").then((response)=>{
+                //渲染数据
+                this.sevenData =response.data.result;
+                if(response.data.flag){//成功提示
+                    this.$message({
+                        type:"success",
+                        message:response.data.message
+                    });
+                }else{//失败提示
+                    this.$message({
+                        type:"error",
+                        message:response.data.message
+                    });
+                }
+            })
+        }
+    });
+</script>
+</html>

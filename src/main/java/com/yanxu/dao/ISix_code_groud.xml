@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanxu.dao.ISix_code_groud">
+    <update id="updateNow_scg" parameterType="Integer">
+        update six_code_groud set before_scg=now_scg,now_scg=0 where id_scg=#{id}
+    </update>
+    <update id="updateBefore_scg" parameterType="Integer">
+        update  six_code_groud set now_scg=now_scg+1 where id_scg =#{id}
+    </update>
+
+    <insert id="addSixAndfour" parameterType="OneToMoney">
+        INSERT INTO six_code_and_four_code(id_six, id_four) VALUES (#{id_size}, #{id})
+    </insert>
+    <insert id="addSixAndfive" parameterType="OneToMoney">
+        insert into six_code_and_five_code(id_six,id_five) values(#{id_size},#{id});
+    </insert>
+</mapper>

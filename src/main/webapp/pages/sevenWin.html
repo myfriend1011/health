@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="../js/vuejs-2.5.16.js"></script>
+    <script src="../js/axios-0.18.0.js"></script>
+    <link rel="stylesheet" href="../css/therepage/four.css">
+</head>
+<body>
+<div id="app">
+    <div class="el-header">
+        <img src="../img/guohua/01.jpg" height="100%" width="100%">
+    </div>
+    <div class="demo">
+        <div class="el-aside">
+            <table>
+                <tr v-for="(item,index) in sevenData">
+                    <td><div>{{item.name_one_Scg}}</div></td>
+                    <td><div>{{item.name_two_Scg}}</div></td>
+                    <td><div>{{item.name_the_Scg}}</div></td>
+                    <td><div>{{item.name_fou_Scg}}</div></td>
+                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                    <td><div>{{item.name_six_Scg}}</div></td>
+                    <td><div>{{item.name_sev_Scg}}</div></td>
+                    <td><div>{{item.now_Scg}}</div></td>
+                    <td><div>{{item.before_Scg}}</div></td>
+                    <td>
+                        <div>
+                            <input type="button" value="对应关系" v-on:click="sevenGuanLianThere(item.id_Scg)"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--eight-->
+        <div class="eight">
+            <table>
+                <thead>
+                <tr>
+                    <td>eightOne</td>
+                    <td>eightTwo</td>
+                    <td>eightThe</td>
+                    <td>eightFou</td>
+                    <td>eightFiv</td>
+                    <td>eightSix</td>
+                    <td>eightSev</td>
+                    <td>eighteig</td>
+                    <td>eightNow</td>
+                    <td>eightBefore</td>
+                </tr>
+                </thead>
+                <tr v-for="(item,index) in eightData">
+                    <td><div>{{item.name_one_eig}}</div></td>
+                    <td><div>{{item.name_two_eig}}</div></td>
+                    <td><div>{{item.name_the_eig}}</div></td>
+                    <td><div>{{item.name_fou_eig}}</div></td>
+                    <td><div>{{item.name_fiv_eig}}</div></td>
+                    <td><div>{{item.name_six_eig}}</div></td>
+                    <td><div>{{item.name_sev_eig}}</div></td>
+                    <td><div>{{item.name_eig_eig}}</div></td>
+                    <td><div>{{item.now_eig}}</div></td>
+                    <td><div>{{item.before_eig}}</div></td>
+                    <td>
+                        <div>
+                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--there-->
+        <div class="there">
+            <table>
+                <thead>
+                <tr>
+                    <td>编号data</td>
+                    <td>thereOne</td>
+                    <td>thereTwo</td>
+                    <td>thereThe</td>
+                    <td>thereNow</td>
+                    <td>thereBefore</td>
+                </tr>
+                </thead>
+                <tr v-for="(item,index) in thereData">
+                    <td><div>{{index}}</div></td>
+                    <td><div>{{item.name_one_tcg}}</div></td>
+                    <td><div>{{item.name_two_tcg}}</div></td>
+                    <td><div>{{item.name_the_tcg}}</div></td>
+                    <td><div>{{item.now_tcg}}</div></td>
+                    <td><div>{{item.before_tcg}}</div></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    var vues = new Vue({
+        el : "#app",
+        data:{
+            fiveData:[],
+            thereData:[],
+            fourData:[],
+            sixData:[],
+            sevenData:[],
+            eightData:[]
+        },
+        methods: {
+            sevenGuanLianThere(id_eig){
+
+                axios.get("/seven/find_sevenGuanLianEight.do?id="+id_eig).then((response)=>{
+                    this.eightData = response.data.result;
+                });
+            },
+            eightGuanLianThere(id_eig){
+                axios.get("/eight/find_eightGuanLianThere.do?id="+id_eig).then((response)=>{
+                    this.thereData = response.data.result;
+                });
+            }
+        },
+        created:function () {
+            axios.post("/seven/findAll.do").then((response)=>{
+                //渲染数据
+                this.sevenData =response.data.result;
+                if(response.data.flag){//成功提示
+                    this.$message({
+                        type:"success",
+                        message:response.data.message
+                    });
+                }else{//失败提示
+                    this.$message({
+                        type:"error",
+                        message:response.data.message
+                    });
+                }
+            })
+        }
+    });
+</script>
+</html>
