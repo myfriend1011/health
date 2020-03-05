@@ -7,6 +7,7 @@ import com.yanxu.uitls.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -29,6 +30,22 @@ public class Three_code_groud_controller {
         }else{
             JsonUtils.printResult(response,new Result(false,"there查询失败"));
         }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "pagemain";
+    }
+
+    @RequestMapping("/yuCeDataFun")
+    public String yuCeDataFun(HttpServletResponse response,@RequestParam("radio4") String radio4){
+       List<Three_code_groud> tcg =  iThree_code_groud_service.yuCeDataFun(radio4);
+        try {
+            if(tcg != null && tcg.size() > 0 ){
+                JsonUtils.printResult(response,new Result(true,"yudata查询数据成功",tcg));
+            }else{
+                JsonUtils.printResult(response,new Result(false,"yudata查询失败"));
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

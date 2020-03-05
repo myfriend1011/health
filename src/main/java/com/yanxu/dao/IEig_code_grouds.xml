@@ -25,4 +25,7 @@
         select * from sev_code_groud where id_Scg in(select id_seven from eight_code_and_seven_code where id_eight=#{id}) order by now_Scg desc
     </select>
 
+    <select id="find_MaxEig_code_groud"  resultType="Integer">
+        select max(now_eig) from eig_code_groud;
+    </select>
 </mapper>

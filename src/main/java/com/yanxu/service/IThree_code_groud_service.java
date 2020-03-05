@@ -56,4 +56,7 @@ public interface IThree_code_groud_service {
     void updateSumAndthere();
     //关联差查
     void updatechaziAndthere();
+
+    List<Three_code_groud> yuCeDataFun(String redio);
+
 }

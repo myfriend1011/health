@@ -47,4 +47,6 @@ public interface IEig_code_grouds {
     void updateNow_scg(Integer id_eig);
 
     void updateBefore_scg(Integer id_eig);
+
+    Integer find_MaxEig_code_groud();
 }

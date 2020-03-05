@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -352,5 +354,46 @@ public class IThree_code_groud_serviceImp implements IThree_code_groud_service {
             }
         }
 
+    }
+
+    @Override
+    public List<Three_code_groud> yuCeDataFun(String redio) {
+
+        List<Three_code_groud> list =  iThree_code_grouddao.findDataDaSix();
+
+        Iterator<Three_code_groud> iterator = list.iterator();
+        while (iterator.hasNext()){
+            Three_code_groud tcg = iterator.next();
+            if(tcg.getName_one_tcg().equals(redio) || tcg.getName_two_tcg().equals(redio) || tcg.getName_the_tcg().equals(redio)){
+                iterator.remove();
+            }
+        }
+
+        List<Three_code_groud> neelist = new ArrayList<>();
+        for (Three_code_groud tcg : list) {
+            String one  = tcg.getName_one_tcg();
+            String two  = tcg.getName_two_tcg();
+            String the  = tcg.getName_the_tcg();
+            Three_code_groud sixone = new Three_code_groud();
+            sixone.setName_one_tcg(one);sixone.setName_two_tcg(two);sixone.setName_the_tcg(the);
+            neelist.add(sixone);
+            Three_code_groud sixtwo = new Three_code_groud();
+            sixtwo.setName_one_tcg(one);sixtwo.setName_two_tcg(the);sixtwo.setName_the_tcg(two);
+            neelist.add(sixtwo);
+            Three_code_groud sixthe = new Three_code_groud();
+            sixthe.setName_one_tcg(two);sixthe.setName_two_tcg(one);sixthe.setName_the_tcg(the);
+            neelist.add(sixthe);
+            Three_code_groud sixfou = new Three_code_groud();
+            sixfou.setName_one_tcg(two);sixfou.setName_two_tcg(the);sixfou.setName_the_tcg(one);
+            neelist.add(sixfou);
+            Three_code_groud sixfiv = new Three_code_groud();
+            sixfiv.setName_one_tcg(the);sixfiv.setName_two_tcg(one);sixfiv.setName_the_tcg(two);
+            neelist.add(sixfiv);
+            Three_code_groud sixsix = new Three_code_groud();
+            sixsix.setName_one_tcg(the);sixsix.setName_two_tcg(two);sixsix.setName_the_tcg(one);
+            neelist.add(sixsix);
+        }
+
+        return neelist;
     }
 }

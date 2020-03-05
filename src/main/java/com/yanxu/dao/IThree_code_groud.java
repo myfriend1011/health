@@ -100,4 +100,7 @@ public interface IThree_code_groud {
     void updatechaziAndthere(OneToMoney oneToMoney);
     @Select("select * from three_code_groud where name_one_tcg=#{one} and name_two_tcg=#{two} and name_the_tcg=#{the}")
     Three_code_groud find_There(@Param("one")String one,@Param("two") String two, @Param("the")String the);
+
+    @Select("select * from three_code_groud where now_tcg > 60")
+    List<Three_code_groud> findDataDaSix();
 }
