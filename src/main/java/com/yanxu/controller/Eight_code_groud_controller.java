@@ -9,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,8 +23,11 @@ public class Eight_code_groud_controller {
     private IEig_code_groud_service eig_code_groud_service;
 
     @RequestMapping("/findAll")
-    private void eight_findAll(HttpServletResponse response){
-        List<Eig_code_groud> all = eig_code_groud_service.findAll();
+    private void eight_findAll(HttpServletRequest request,HttpServletResponse response){
+        HttpSession session = request.getSession();
+        String dt = (String) session.getAttribute("dt");
+        List<Eig_code_groud> all = eig_code_groud_service.yuCeDataFun(dt);
+        System.out.println("fdfiji+++++++++++++++++++++++="+dt);
         try {
             if(all != null && all.size() >0 ){
                 JsonUtils.printResult(response,new Result(true,"eight查询数据信息成功",all));

@@ -28,9 +28,9 @@ public class GameTest {
             //3.使用构建者创建工厂对象 SqlSessionFactory
             sqlSessionFactory = builder.build(inputStream);
             //4.使用 SqlSessionFactory 生产 SqlSession 对象
-            sqlSession = sqlSessionFactory.openSession();
+           // sqlSession = sqlSessionFactory.openSession();
             ////5.使用 SqlSession 创建 dao 接口的代理对象
-            iThree_code_groud = sqlSession.getMapper(IThree_code_groud.class);
+            //iThree_code_groud = sqlSession.getMapper(IThree_code_groud.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -61,12 +61,21 @@ public class GameTest {
 
     @After
     public void destroy(){
-        sqlSession.commit();
-        sqlSession.close();
+       // sqlSession.commit();
+       // sqlSession.close();
         try {
             inputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
+
+    @Test
+    public void usdjfi(){
+
+    }
+
+
 }

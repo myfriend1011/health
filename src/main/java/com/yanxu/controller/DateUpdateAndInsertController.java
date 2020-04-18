@@ -1,20 +1,26 @@
 package com.yanxu.controller;
 
 import com.yanxu.dao.IThree_code_groud;
+import com.yanxu.domain.Eig_code_groud;
+import com.yanxu.domain.Three_code_groud;
 import com.yanxu.domain.pojo.Theres;
 import com.yanxu.service.*;
 import com.yanxu.service.interfacees.ISumAndKDuAndChazi;
 import com.yanxu.uitls.JsonUtils;
+import com.yanxu.uitls.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/UpdateAndAdd")
@@ -114,7 +120,24 @@ public class DateUpdateAndInsertController {
     }
 
 
-    //fourhesix第三表
+    //杀号
+    @RequestMapping("/yuCeDataFun")
+    public String yuCeDataFun(HttpServletRequest request, HttpServletResponse response,@RequestParam("radio4") String radio4){
+        List<Eig_code_groud> tcg =  iEig_code_groud_service.yuCeDataFun(radio4);
+        HttpSession session = request.getSession();
+        session.setAttribute("dt",radio4);
+        try {
+            if(tcg != null && tcg.size() > 0 ){
+                JsonUtils.printResult(response,new Result(true,"yudata查询数据成功",tcg));
+            }else{
+                JsonUtils.printResult(response,new Result(false,"yudata查询失败"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "pagemain";
+    }
 
 
 }

@@ -7,11 +7,30 @@
     <script src="../js/vuejs-2.5.16.js"></script>
     <script src="../js/axios-0.18.0.js"></script>
     <link rel="stylesheet" href="../css/therepage/four.css">
+    <!-- 引入ElementUI样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 引入ElementUI组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="css/mainpage/update.css">
+    <script src="js/axios-0.18.0.js"></script>
 </head>
 <body>
 <div id="app">
-    <div class="el-header">
-        <img src="../img/guohua/01.jpg" height="100%" width="100%">
+    <div class="el_Right">
+        <el-radio-group v-model="radio4">
+            <el-radio-button label="01"></el-radio-button>
+            <el-radio-button label="02"></el-radio-button>
+            <el-radio-button label="03"></el-radio-button>
+            <el-radio-button label="04"></el-radio-button>
+            <el-radio-button label="05"></el-radio-button>
+            <el-radio-button label="06"></el-radio-button>
+            <el-radio-button label="07"></el-radio-button>
+            <el-radio-button label="08"></el-radio-button>
+            <el-radio-button label="09"></el-radio-button>
+            <el-radio-button label="10"></el-radio-button>
+        </el-radio-group>
+        <el-tag >{{radio4}}</el-tag>
     </div>
     <div class="demo">
         <div class="el-aside">

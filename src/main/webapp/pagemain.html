@@ -433,43 +433,66 @@
             <el-tab-pane>
                 <span slot="label" v-on:click="yuCeDataFun" >yuceData</span>
                 <template>
-                    <!--<el-table-->
-                            <!--:data="shuData"-->
-                            <!--border-->
-                            <!--style="width: 100%">-->
-                        <!--<el-table-column-->
-                                <!--type="index"-->
-                                <!--width="50">-->
-                        <!--</el-table-column>-->
-                        <!--<el-table-column-->
-                                <!--prop="name_one_tcg"-->
-                                <!--label="数据one"-->
-                                <!--width="180">-->
-                        <!--</el-table-column>-->
-                        <!--<el-table-column-->
-                                <!--prop="name_two_tcg"-->
-                                <!--label="数据two"-->
-                                <!--width="180">-->
-                        <!--</el-table-column>-->
-                        <!--<el-table-column-->
-                                <!--prop="name_the_tcg"-->
-                                <!--label="数据the"-->
-                                <!--width="180">-->
-                        <!--</el-table-column>-->
-                        <!--<el-table-column-->
-                                <!--prop="now_tcg"-->
-                                <!--label="数据当前"-->
-                                <!--width="180">-->
-                        <!--</el-table-column>-->
-                        <!--<el-table-column-->
-                                <!--prop="before_tcg"-->
-                                <!--label="数据以前"-->
-                                <!--width="180">-->
-                        <!--</el-table-column>-->
-                    <!--</el-table>-->
-                    <div v-for="item in shuData">
-                        {{item.name_one_tcg}}   {{item.name_two_tcg}}    {{item.name_the_tcg}},
-                    </div>
+                    <el-table
+                            :data="shuData"
+                            border
+                            style="width: 100%">
+                        <el-table-column
+                                type="index"
+                                width="50">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_one_eig"
+                                label="数据one"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_two_eig"
+                                label="数据two"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_the_eig"
+                                label="数据the"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_fou_eig"
+                                label="数据fou"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_fiv_eig"
+                                label="数据fiv"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_six_eig"
+                                label="数据six"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_sev_eig"
+                                label="数据six"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="name_eig_eig"
+                                label="数据six"
+                                width="120">
+                        </el-table-column>
+
+                        <el-table-column
+                                prop="now_eig"
+                                label="数据当前"
+                                width="120">
+                        </el-table-column>
+                        <el-table-column
+                                prop="before_eig"
+                                label="数据以前"
+                                width="120">
+                        </el-table-column>
+                    </el-table>
                 </template>
 
             </el-tab-pane>
@@ -631,7 +654,7 @@
 
             //预测数据信息
             yuCeDataFun:function(){
-                axios.get("/there/yuCeDataFun.do?radio4="+this.radio4).then((response)=>{
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+this.radio4).then((response)=>{
                     this.shuData = response.data.result;
                     if(response.data.flag){
                         this.$message({

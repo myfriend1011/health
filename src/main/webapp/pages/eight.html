@@ -174,7 +174,8 @@
             fourData:[],
             sixData:[],
             sevenData:[],
-            eightData:[]
+            eightData:[],
+
         },
         methods: {
             eightGuanLianThere(id_eig){
@@ -197,7 +198,7 @@
             }
         },
         created:function () {
-            axios.post("/eight/findAll.do").then((response)=>{
+            axios.post("/eight/findAll.do",{}).then((response)=>{
                 //渲染数据
                 this.eightData =response.data.result;
                 if(response.data.flag){//成功提示

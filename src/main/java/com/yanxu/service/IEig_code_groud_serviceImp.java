@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 @Service
 public class IEig_code_groud_serviceImp implements IEig_code_groud_service{
@@ -272,6 +273,40 @@ public class IEig_code_groud_serviceImp implements IEig_code_groud_service{
     @Override
     public List<Sev_code_groud> find_eightGuanLianSeven(Integer id) {
         return iEig_code_groud.find_eightGuanLianSeven(id);
+    }
+
+    @Override
+    public List<Eig_code_groud> yuCeDataFun(String radio) {
+        List<Eig_code_groud> list =  iEig_code_groud.findAll();
+
+        Iterator<Eig_code_groud> iterator = list.iterator();
+        List<Eig_code_groud> neelist = new ArrayList<>();
+        while (iterator.hasNext()){
+            Eig_code_groud next = iterator.next();
+            StringBuffer stringBuffer = new StringBuffer();
+            String name_one_eig = next.getName_one_eig();
+            String name_two_eig = next.getName_two_eig();
+            String name_the_eig = next.getName_the_eig();
+            String name_fou_eig = next.getName_fou_eig();
+            String name_fiv_eig = next.getName_fiv_eig();
+            String name_six_eig = next.getName_six_eig();
+            String name_sev_eig = next.getName_sev_eig();
+            String name_eig_eig = next.getName_eig_eig();
+
+
+            if (!(name_eig_eig.equalsIgnoreCase(radio) ||
+                name_sev_eig.equalsIgnoreCase(radio) ||
+                name_six_eig.equalsIgnoreCase(radio) ||
+                name_fiv_eig.equalsIgnoreCase(radio) ||
+                name_fou_eig.equalsIgnoreCase(radio) ||
+                name_the_eig.equalsIgnoreCase(radio) ||
+                name_two_eig.equalsIgnoreCase(radio) ||
+                name_one_eig.equalsIgnoreCase(radio))){
+                neelist.add(next);
+            }
+        }
+
+        return neelist;
     }
 
 

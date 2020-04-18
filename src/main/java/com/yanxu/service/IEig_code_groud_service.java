@@ -41,4 +41,6 @@ public interface IEig_code_groud_service {
     List<Five_code_groud> find_eightGuanLianFive(Integer id);
     List<Six_code_groud> find_eightGuanLianSix(Integer id);
     List<Sev_code_groud> find_eightGuanLianSeven(Integer id);
+
+    List<Eig_code_groud> yuCeDataFun(String radio4);
 }
