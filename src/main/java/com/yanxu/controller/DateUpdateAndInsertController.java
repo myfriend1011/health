@@ -44,7 +44,7 @@ public class DateUpdateAndInsertController {
     private ISumAndKDuAndChazi iSumAndKDuAndChazi;
 
     @RequestMapping("/update")
-    public void update(HttpServletRequest request){
+    public void update(HttpServletRequest request,HttpServletResponse response){
         try {
             Theres theres = JsonUtils.parseJSON2Object(request, Theres.class);
             //更新当前信息
@@ -57,7 +57,12 @@ public class DateUpdateAndInsertController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("ji");
+        try {
+            JsonUtils.printResult(response,new Result(true,"Updata数据成功"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**

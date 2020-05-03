@@ -25,4 +25,45 @@
     <select id="find_fourGuanLianEight" parameterType="integer" resultType="eig_code_groud">
         select * from eig_code_groud where id_eig in (select id_eight from eight_code_and_four_code where id_four=#{id}) order by now_eig desc
     </select>
+
+    <!--danma数据-->
+    <insert id="insertBtFrist" parameterType="BtFirst">
+        insert into bt_first(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtTwo" parameterType="BtTwo">
+        insert into bt_two(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtThere" parameterType="BtThere">
+        insert into bt_there(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtFoure" parameterType="BtFour">
+        insert into bt_four(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtFive" parameterType="BtFive">
+        insert into bt_five(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtSix" parameterType="BtSix">
+        insert into bt_six(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg) value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtSeven" parameterType="BtSeven">
+        insert into bt_seven(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtEight" parameterType="BtEight" >
+        insert into bt_eight(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtNine" parameterType="BtNine">
+        insert into bt_nine(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
+
+    <insert id="insertBtTen" parameterType="BtTen">
+        insert into bt_ten(one_one,one_two,one_the,one_fou,one_danqian,one_max,one_avg)value(#{one_one},#{one_two},#{one_the},#{one_fou},10,10,10);
+    </insert>
 </mapper>

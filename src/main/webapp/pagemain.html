@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <link rel="stylesheet" href="css/mainpage/update.css">
     <script src="js/axios-0.18.0.js"></script>
+    <link rel="stylesheet" href="../css/therepage/four.css">
     <style>
         .el_Right{
             float: right;
@@ -21,18 +22,6 @@
 <div id="app">
     <el-container>
         <el-header>
-            <div>
-                <el-row :gutter="20">
-                    <el-col :span="3"><div class="grid-content bg-purple"><a href="../pages/four.html">four</a></div></el-col>
-                    <el-col :span="3"><div class="grid-content bg-purple"><a href="../pages/five.html">five</a></div></el-col>
-                    <el-col :span="3"><div class="grid-content bg-purple"><a href="../pages/eight.html">eight</a></div></el-col>
-                    <el-col :span="3"><div class="grid-content bg-purple"><a href="../pages/seven.html">seven</a></div></el-col>
-                    <el-col :span="3"><div class="grid-content bg-purple"></div></el-col>
-                    <el-col :span="3"><div class="grid-content bg-purple"></div></el-col>
-                    <el-col :span="3"><div class="grid-content bg-purple"></div></el-col>
-                    <el-col :span="3"><div class="grid-content bg-purple"></div></el-col>
-                </el-row>
-            </div>
         </el-header>
         <el-main>
             <div class="el-bo">
@@ -88,413 +77,609 @@
                         <el-tag >{{radio2}}</el-tag>
                         <el-tag >{{radio3}}</el-tag>
                         <template >
-                            <el-button :plain="true" v-on:click="submit">submit</el-button>
+                            <el-button :plain="true" v-on:click="submit" style="text-decoration-style: solid" >submit</el-button>
                         </template>
                     </div>
 
-                    <div class="el_Right">
-                        <el-radio-group v-model="radio4">
-                            <el-radio-button label="01"></el-radio-button>
-                            <el-radio-button label="02"></el-radio-button>
-                            <el-radio-button label="03"></el-radio-button>
-                            <el-radio-button label="04"></el-radio-button>
-                            <el-radio-button label="05"></el-radio-button>
-                            <el-radio-button label="06"></el-radio-button>
-                            <el-radio-button label="07"></el-radio-button>
-                            <el-radio-button label="08"></el-radio-button>
-                            <el-radio-button label="09"></el-radio-button>
-                            <el-radio-button label="10"></el-radio-button>
-                        </el-radio-group>
-                        <el-tag >{{radio4}}</el-tag>
-                    </div>
                 </div>
             </div>
         </el-main>
     </el-container>
     <div>
         <el-tabs type="border-card">
-            <!--thereData-->
+            <!--oneData-->
             <el-tab-pane>
-                <span slot="label"><i class="el-icon-date"></i>thereData</span>
+                <span slot="label">oneData</span>
                 <template>
-                    <el-table
-                            :data="thereData"
-                            border
-                            style="width: 100%">
-                        <el-table-column
-                                type="index"
-                                width="50">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_one_tcg"
-                                label="数据one"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_two_tcg"
-                                label="数据two"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_the_tcg"
-                                label="数据the"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="now_tcg"
-                                label="数据当前"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="before_tcg"
-                                label="数据以前"
-                                width="180">
-                        </el-table-column>
-                    </el-table>
+                        <div class="demo">
+                            <div class="el-aside">
+                                <table>
+                                    <tr v-for="(item,index) in oneData">
+                                        <td><div>{{item.name_one_eig}}</div></td>
+                                        <td><div>{{item.name_two_eig}}</div></td>
+                                        <td><div>{{item.name_the_eig}}</div></td>
+                                        <td><div>{{item.name_fou_eig}}</div></td>
+                                        <td><div>{{item.name_fiv_eig}}</div></td>
+                                        <td><div>{{item.name_six_eig}}</div></td>
+                                        <td><div>{{item.name_sev_eig}}</div></td>
+                                        <td><div>{{item.name_eig_eig}}</div></td>
+                                        <td><div>{{item.now_eig}}</div></td>
+                                        <td><div>{{item.before_eig}}</div></td>
+                                        <td>
+                                            <div>
+                                                <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                            <!--eight-->
+                            <div class="eight">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <td>sevenOne</td>
+                                        <td>sevenTwo</td>
+                                        <td>sevenThe</td>
+                                        <td>sevenFou</td>
+                                        <td>sevenFiv</td>
+                                        <td>sevenSix</td>
+                                        <td>sevenSev</td>
+                                        <td>sevenNow</td>
+                                        <td>sevenBefore</td>
+                                    </tr>
+                                    </thead>
+                                    <tr v-for="(item,index) in sevenData">
+                                        <td><div>{{item.name_one_Scg}}</div></td>
+                                        <td><div>{{item.name_two_Scg}}</div></td>
+                                        <td><div>{{item.name_the_Scg}}</div></td>
+                                        <td><div>{{item.name_fou_Scg}}</div></td>
+                                        <td><div>{{item.name_fiv_Scg}}</div></td>
+                                        <td><div>{{item.name_six_Scg}}</div></td>
+                                        <td><div>{{item.name_sev_Scg}}</div></td>
+                                        <td><div>{{item.now_Scg}}</div></td>
+                                        <td><div>{{item.before_Scg}}</div></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                 </template>
             </el-tab-pane>
-            <!--fourData-->
+            <!--twoData-->
             <el-tab-pane>
-                <span slot="label"  v-on:click="fourDataFun"><i class="el-icon-date"></i>fourData</span>
+                <span slot="label"  v-on:click="twoDataFun">twoData</span>
                 <template>
-                    <el-table
-                            :data="fourData"
-                            border
-                            style="width: 100%">
-                        <el-table-column
-                                type="index"
-                                width="50">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_one_fcg"
-                                label="数据one"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_two_fcg"
-                                label="数据two"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_the_fcg"
-                                label="数据the"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fou_fcg"
-                                label="数据fou"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="now_fcg"
-                                label="数据当前"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="before_fcg"
-                                label="数据以前"
-                                width="180">
-                        </el-table-column>
-                    </el-table>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </template>
             </el-tab-pane>
-            <!--fiveData-->
+            <!--therData-->
             <el-tab-pane>
-                    <span slot="label"  v-on:click="fiveDataFun"><i class="el-icon-date"></i>fiveData</span>
+                    <span slot="label"  v-on:click="therDataFun">therData</span>
                     <template>
-                        <el-table
-                                :data="fiveData"
-                                border
-                                style="width: 100%">
-                            <el-table-column
-                                    type="index"
-                                    width="50">
-                            </el-table-column>
-                            <el-table-column
-                                    prop="name_one_Fcg"
-                                    label="数据one"
-                                    width="180">
-                            </el-table-column>
-                            <el-table-column
-                                    prop="name_two_Fcg"
-                                    label="数据two"
-                                    width="180">
-                            </el-table-column>
-                            <el-table-column
-                                    prop="name_the_Fcg"
-                                    label="数据the"
-                                    width="180">
-                            </el-table-column>
-                            <el-table-column
-                                    prop="name_fou_Fcg"
-                                    label="数据fou"
-                                    width="180">
-                            </el-table-column>
-                            <el-table-column
-                                    prop="name_fiv_Fcg"
-                                    label="数据fiv"
-                                    width="180">
-                            </el-table-column>
-                            <el-table-column
-                                    prop="now_Fcg"
-                                    label="数据当前"
-                                    width="180">
-                            </el-table-column>
-                            <el-table-column
-                                    prop="before_Fcg"
-                                    label="数据以前"
-                                    width="180">
-                            </el-table-column>
-                        </el-table>
+                            <div class="demo">
+                                <div class="el-aside">
+                                    <table>
+                                        <tr v-for="(item,index) in eightData">
+                                            <td><div>{{item.name_one_eig}}</div></td>
+                                            <td><div>{{item.name_two_eig}}</div></td>
+                                            <td><div>{{item.name_the_eig}}</div></td>
+                                            <td><div>{{item.name_fou_eig}}</div></td>
+                                            <td><div>{{item.name_fiv_eig}}</div></td>
+                                            <td><div>{{item.name_six_eig}}</div></td>
+                                            <td><div>{{item.name_sev_eig}}</div></td>
+                                            <td><div>{{item.name_eig_eig}}</div></td>
+                                            <td><div>{{item.now_eig}}</div></td>
+                                            <td><div>{{item.before_eig}}</div></td>
+                                            <td>
+                                                <div>
+                                                    <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--eight-->
+                                <div class="eight">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <td>sevenOne</td>
+                                            <td>sevenTwo</td>
+                                            <td>sevenThe</td>
+                                            <td>sevenFou</td>
+                                            <td>sevenFiv</td>
+                                            <td>sevenSix</td>
+                                            <td>sevenSev</td>
+                                            <td>sevenNow</td>
+                                            <td>sevenBefore</td>
+                                        </tr>
+                                        </thead>
+                                        <tr v-for="(item,index) in sevenData">
+                                            <td><div>{{item.name_one_Scg}}</div></td>
+                                            <td><div>{{item.name_two_Scg}}</div></td>
+                                            <td><div>{{item.name_the_Scg}}</div></td>
+                                            <td><div>{{item.name_fou_Scg}}</div></td>
+                                            <td><div>{{item.name_fiv_Scg}}</div></td>
+                                            <td><div>{{item.name_six_Scg}}</div></td>
+                                            <td><div>{{item.name_sev_Scg}}</div></td>
+                                            <td><div>{{item.now_Scg}}</div></td>
+                                            <td><div>{{item.before_Scg}}</div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                     </template>
             </el-tab-pane>
-            <!--sixData-->
+            <!--fouData-->
             <el-tab-pane>
-                <span slot="label"  v-on:click="sixDataFun"><i class="el-icon-date"></i>sixData</span>
+                <span slot="label"  v-on:click="fouDataFun">fouData</span>
                 <template>
-                    <el-table
-                            :data="sixData"
-                            border
-                            style="width: 100%">
-                        <el-table-column
-                                type="index"
-                                width="50">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_one_scg"
-                                label="数据one"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_two_scg"
-                                label="数据two"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_the_scg"
-                                label="数据the"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fou_scg"
-                                label="数据fou"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fiv_scg"
-                                label="数据fiv"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_six_scg"
-                                label="数据six"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="now_scg"
-                                label="数据当前"
-                                width="180">
-                        </el-table-column>
-                        <el-table-column
-                                prop="before_scg"
-                                label="数据以前"
-                                width="180">
-                        </el-table-column>
-                    </el-table>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </template>
             </el-tab-pane>
             <!--sevenData-->
             <el-tab-pane>
-                <span slot="label"  v-on:click="sevenDataFun"><i class="el-icon-date"></i>sevenData</span>
+                <span slot="label"  v-on:click="fivDataFun">fivData</span>
                 <template>
-                    <el-table
-                            :data="sevenData"
-                            border
-                            style="width: 100%">
-                        <el-table-column
-                                type="index"
-                                width="50">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_one_Scg"
-                                label="数据one"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_two_Scg"
-                                label="数据two"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_the_Scg"
-                                label="数据the"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fou_Scg"
-                                label="数据fou"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fiv_Scg"
-                                label="数据fiv"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_six_Scg"
-                                label="数据six"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_sev_Scg"
-                                label="数据six"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="now_Scg"
-                                label="数据当前"
-                                width="150">
-                        </el-table-column>
-                        <el-table-column
-                                prop="before_scg"
-                                label="数据以前"
-                                width="150">
-                        </el-table-column>
-                    </el-table>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </template>
             </el-tab-pane>
             <!--eightData-->
             <el-tab-pane>
-                <span slot="label"  v-on:click="eightDataFun"><i class="el-icon-date"></i>eightData</span>
+                <span slot="label"  v-on:click="sixDataFun">sixData</span>
                 <template>
-                    <el-table
-                            :data="eightData"
-                            border
-                            style="width: 100%">
-                        <el-table-column
-                                type="index"
-                                width="50">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_one_eig"
-                                label="数据one"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_two_eig"
-                                label="数据two"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_the_eig"
-                                label="数据the"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fou_eig"
-                                label="数据fou"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fiv_eig"
-                                label="数据fiv"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_six_eig"
-                                label="数据six"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_sev_eig"
-                                label="数据six"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_eig_eig"
-                                label="数据six"
-                                width="120">
-                        </el-table-column>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
 
-                        <el-table-column
-                                prop="now_eig"
-                                label="数据当前"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="before_eig"
-                                label="数据以前"
-                                width="120">
-                        </el-table-column>
-                    </el-table>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </template>
             </el-tab-pane>
             <!--shuData-->
             <el-tab-pane>
-                <span slot="label" v-on:click="yuCeDataFun" >yuceData</span>
+                <span slot="label" v-on:click="sevnDataFun" >sevData</span>
                 <template>
-                    <el-table
-                            :data="shuData"
-                            border
-                            style="width: 100%">
-                        <el-table-column
-                                type="index"
-                                width="50">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_one_eig"
-                                label="数据one"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_two_eig"
-                                label="数据two"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_the_eig"
-                                label="数据the"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fou_eig"
-                                label="数据fou"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_fiv_eig"
-                                label="数据fiv"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_six_eig"
-                                label="数据six"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_sev_eig"
-                                label="数据six"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="name_eig_eig"
-                                label="数据six"
-                                width="120">
-                        </el-table-column>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
 
-                        <el-table-column
-                                prop="now_eig"
-                                label="数据当前"
-                                width="120">
-                        </el-table-column>
-                        <el-table-column
-                                prop="before_eig"
-                                label="数据以前"
-                                width="120">
-                        </el-table-column>
-                    </el-table>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </template>
+            </el-tab-pane>
 
+            <!--eightData-->
+            <el-tab-pane>
+                <span slot="label" v-on:click="eightDataFun" >eightData</span>
+                <template>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </template>
+            </el-tab-pane>
+
+            <!--nineData-->
+            <el-tab-pane>
+                <span slot="label" v-on:click="nineDataFun" >nineData</span>
+                <template>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </template>
+            </el-tab-pane>
+
+            <!--tenData-->
+            <!--nineData-->
+            <el-tab-pane>
+                <span slot="label" v-on:click="tenDataFun" >tenData</span>
+                <template>
+                    <div class="demo">
+                        <div class="el-aside">
+                            <table>
+                                <tr v-for="(item,index) in eightData">
+                                    <td><div>{{item.name_one_eig}}</div></td>
+                                    <td><div>{{item.name_two_eig}}</div></td>
+                                    <td><div>{{item.name_the_eig}}</div></td>
+                                    <td><div>{{item.name_fou_eig}}</div></td>
+                                    <td><div>{{item.name_fiv_eig}}</div></td>
+                                    <td><div>{{item.name_six_eig}}</div></td>
+                                    <td><div>{{item.name_sev_eig}}</div></td>
+                                    <td><div>{{item.name_eig_eig}}</div></td>
+                                    <td><div>{{item.now_eig}}</div></td>
+                                    <td><div>{{item.before_eig}}</div></td>
+                                    <td>
+                                        <div>
+                                            <input type="button" value="对应关系" v-on:click="eightGuanLianThere(item.id_eig)"/>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <!--eight-->
+                        <div class="eight">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td>sevenOne</td>
+                                    <td>sevenTwo</td>
+                                    <td>sevenThe</td>
+                                    <td>sevenFou</td>
+                                    <td>sevenFiv</td>
+                                    <td>sevenSix</td>
+                                    <td>sevenSev</td>
+                                    <td>sevenNow</td>
+                                    <td>sevenBefore</td>
+                                </tr>
+                                </thead>
+                                <tr v-for="(item,index) in sevenData">
+                                    <td><div>{{item.name_one_Scg}}</div></td>
+                                    <td><div>{{item.name_two_Scg}}</div></td>
+                                    <td><div>{{item.name_the_Scg}}</div></td>
+                                    <td><div>{{item.name_fou_Scg}}</div></td>
+                                    <td><div>{{item.name_fiv_Scg}}</div></td>
+                                    <td><div>{{item.name_six_Scg}}</div></td>
+                                    <td><div>{{item.name_sev_Scg}}</div></td>
+                                    <td><div>{{item.now_Scg}}</div></td>
+                                    <td><div>{{item.before_Scg}}</div></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </template>
             </el-tab-pane>
         </el-tabs>
     </div>
@@ -509,7 +694,7 @@
             radio2: '00',
             radio3: '00',
             radio4: '00',
-            thereData: [],
+            oneData: [],
             fourData:[],
             fiveData:[],
             sixData:[],
@@ -520,23 +705,20 @@
         methods: {
             //查询there所有数据
             findAll(){
-                axios.post("there/findAll.do").then((response)=>{
-                    console.log(response.data.result);
-                    this.thereData=response.data.result;
-                    // 提示
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"01").then((response)=>{
+                    this.oneData = response.data.result;
                     if(response.data.flag){
                         this.$message({
                             type:"success",
-                            message:response.data.message,
-                        })
+                            message:response.data.message
+                        });
                     }else{
                         this.$message({
                             type:"error",
                             message:response.data.message
-                        })
+                        });
                     }
-
-                })
+                });
             },
             submit(){
               var theres={
@@ -562,28 +744,9 @@
 
             },
             //查询fourData所有数据
-            fourDataFun:function () {
-                axios.post("/four/findAll.do").then((response)=>{
-                    //渲染数据
-                    this.fourData =response.data.result;
-                    if(response.data.flag){//成功提示
-                        this.$message({
-                            type:"success",
-                            message:response.data.message
-                        });
-                    }else{//失败提示
-                        this.$message({
-                            type:"error",
-                            message:response.data.message
-                        });
-                    }
-                })
-            },
-
-            //查询fiveData所有数据信息
-            fiveDataFun:function () {
-                axios.get("/five/findAll.do").then((response)=>{
-                    this.fiveData = response.data.result;
+            twoDataFun:function () {
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"02").then((response)=>{
+                    this.eightData = response.data.result;
                     if(response.data.flag){
                         this.$message({
                             type:"success",
@@ -595,13 +758,31 @@
                             message:response.data.message
                         });
                     }
-                })
+                });
+            },
+
+            //查询fiveData所有数据信息
+            therDataFun:function () {
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"03").then((response)=>{
+                    this.eightData = response.data.result;
+                    if(response.data.flag){
+                        this.$message({
+                            type:"success",
+                            message:response.data.message
+                        });
+                    }else{
+                        this.$message({
+                            type:"error",
+                            message:response.data.message
+                        });
+                    }
+                });
             },
 
             //查询six所有数据信息
-            sixDataFun:function () {
-                axios.get("/six/findAll.do").then((response)=>{
-                    this.sixData = response.data.result;
+            fouDataFun:function () {
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"04").then((response)=>{
+                    this.eightData = response.data.result;
                     if(response.data.flag){
                         this.$message({
                             type:"success",
@@ -617,9 +798,9 @@
             },
 
             //查询seven所有数据信息
-            sevenDataFun:function(){
-                axios.get("/seven/findAll.do").then((response)=>{
-                    this.sevenData = response.data.result;
+            fivDataFun:function(){
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"05").then((response)=>{
+                    this.eightData = response.data.result;
                     if(response.data.flag){
                         this.$message({
                             type:"success",
@@ -635,8 +816,8 @@
             },
 
             //查询eight所有数据信息
-            eightDataFun:function(){
-                axios.get("/eight/findAll.do").then((response)=>{
+            sixDataFun:function(){
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"06").then((response)=>{
                     this.eightData = response.data.result;
                     if(response.data.flag){
                         this.$message({
@@ -653,9 +834,9 @@
             },
 
             //预测数据信息
-            yuCeDataFun:function(){
-                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+this.radio4).then((response)=>{
-                    this.shuData = response.data.result;
+            sevnDataFun:function(){
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"07").then((response)=>{
+                    this.eightData = response.data.result;
                     if(response.data.flag){
                         this.$message({
                             type:"success",
@@ -667,6 +848,60 @@
                             message:response.data.message
                         });
                     }
+                });
+            },
+            eightDataFun:function(){
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"08").then((response)=>{
+                    this.eightData = response.data.result;
+                    if(response.data.flag){
+                        this.$message({
+                            type:"success",
+                            message:response.data.message
+                        });
+                    }else{
+                        this.$message({
+                            type:"error",
+                            message:response.data.message
+                        });
+                    }
+                });
+            },
+            nineDataFun:function(){
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"09").then((response)=>{
+                    this.eightData = response.data.result;
+                    if(response.data.flag){
+                        this.$message({
+                            type:"success",
+                            message:response.data.message
+                        });
+                    }else{
+                        this.$message({
+                            type:"error",
+                            message:response.data.message
+                        });
+                    }
+                });
+            },
+            tenDataFun:function(){
+                axios.get("/UpdateAndAdd/yuCeDataFun.do?radio4="+"10").then((response)=>{
+                    this.eightData = response.data.result;
+                    if(response.data.flag){
+                        this.$message({
+                            type:"success",
+                            message:response.data.message
+                        });
+                    }else{
+                        this.$message({
+                            type:"error",
+                            message:response.data.message
+                        });
+                    }
+                });
+            },
+            eightGuanLianThere(id_eig){
+                alert(id_eig)
+                axios.get("/eight/find_eightGuanLianSeven.do?id="+id_eig).then((response)=>{
+                    this.sevenData = response.data.result;
                 });
             }
         },

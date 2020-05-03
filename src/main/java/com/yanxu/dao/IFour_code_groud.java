@@ -1,6 +1,7 @@
 package com.yanxu.dao;
 
 import com.yanxu.domain.*;
+import com.yanxu.domain.pojo.danma.BtFirst;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -13,6 +14,7 @@ public interface IFour_code_groud {
             "now_fou,before_fou) values(#{name_one_fcg},#{name_two_fcg},#{name_the_fcg},#{name_fou_fcg}," +
             "#{now_fou},#{before_fou})")
     public void add(Four_code_groud four_code_groud);
+
 
 
     public void update(@Param("ids") List<Integer> ids);
@@ -62,4 +64,8 @@ public interface IFour_code_groud {
     void updateNow_fcg(Integer id);
 
     void updatebefore_fcg(Integer id_fcg);
+
+
+    //给其他添加数据
+    void insertBtFrist(BtFirst btFirst);
 }
